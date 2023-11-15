@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="weight=device-width , initial-scale=1 , shrink-to-fit=no">
+        <title>CPU Scheduling Calculator</title>
+        <link rel="stylesheet" type="text/css" href="./css/all.css">
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <script src="eel.js"></script>
+    </head>
+    
+    <body class="body">
+        <div class="message">
+            <div class="abstract_valid">Something Being Wrong!</div>
+        </div>
+        <div class="loadOverlay" style="display: none;">
+            <div>
+                <img src="./images/inf.svg" width="80px">
+                <h4>Please Wait</h4>
+            </div>
+        </div>
+
+        <div class="popup_result" style="display: none;">
+            <div class="signContent">
+                <div>
+                        <div class="times">x</div>
+                        <h2 class="no_shadow">GTT Modeling Result</h2>
+                        <div class="popup_inner">
+                            <img src="./images/correct.svg">
+                            <h3 style="padding-top: 14px; text-align: center">The Patient Has Diabetes</h3>
+                            <div style="display: flex;justify-content:center;">
+                                <div class="skatch">View Curve</div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup_skatch" style="display: none;">
+            <div class="signContent">
+                <div>
+                        <div class="times2">x</div>
+                        <h2 class="no_shadow">Skatch of Curve Fitting</h2>
+                        <div class="popup_inskatch">
+                            <img src="">
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="container"  dir="rtl">
+
+            <div class="allBody">
+                <div class="navBar" dir="ltr">
+                    <div class="nile_logo" style="display: flex; height:80px; width: 80px; background: url('./images/nile.png') center no-repeat; background-size: contain;"></div>
+                    <div style="display: flex; justify-content:center; align-items:center; ">
+                        <h2 style="color:#f1f1f1; font-size: 25px; font-weight: 700;">OS</h2>
+                    </div>
+                </div> 
+                <div class="text" style="text-align: center; padding-top:11%;"><h2 style="font-size: 33px; font-weight: 700;">CPU Scheduling Calculator</h2></div> 
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" xml:space="preserve" x="0px" y="0px" style="position: relative; transform: translateY(18px) rotate(180deg); height:100px"><path fill="#fff" fill-opacity="1" d="M0,65L1440,5L1440,0L0,0Z"></path></svg>
+        </section>
+
+        <div class="allquiz">
+            <div class="quiz_content" style="width: 85%;height: auto;background-color: #fff;border-radius: 10px;box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08); padding: 4%;min-height: 461.5px;"> 
+                <h2 class="no_shadow">Input</h2>
+                <form method="post" id="fields_form" autocomplete="off">
+                    <div class="select_container">
+                        <div class="selected2 selected"> 
+                            <h4>Algorithm Type</h4><i class="fal fa-angle-up"></i>
+                            <div class="select_box2 select_box">
+                                <div class="option_container2 option_container">
+                                    <div class="option2 option">
+                                        <input type="radio" class="radio" id="preemptive" name='algorithm_type' required >
+                                        <label for="preemptive"><i class="fad fa-arrow-right"></i>Preemptive</label>
+                                    </div>
+                                    <div class="option2 option">
+                                        <input type="radio" class="radio" id="nonpreemptive" name='algorithm_type' required>
+                                        <label for="nonpreemptive"><i class="fad fa-arrow-right"></i>Non-preemptive</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="selected3 selected selected_block" style="float: left;"> 
+                            <h4>Algorithm</h4><i class="fal fa-angle-up"></i>
+                            <div class="select_box3 select_box">
+                                <div class="option_container3 option_container">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quantum">
+                            <input type="number" min="1" name='quantum' placeholder="quantum" required disabled>
+                        </div>
+                        <div class="add" dir="rtl">
+                            <i class="fas fa-plus add_icon plus_icon"></i>
+                            <i class="fas fa-minus add_icon minus_icon hideen"></i>
+                            <div class="count">2</div>
+                        </div>
+                    </div>
+
+                    <div class="all_fields">
+                        <table class="styled-table static-table-style">
+                            <thead>
+                                <tr>
+                                    <th>Process</th>
+                                    <th>Arrival Time</th>
+                                    <th>Burst Time</th>
+                                    <th style="display: none;">Periority</th>
+                                    <th>Color</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-id="1">
+                                    <td>
+                                        P<sub>1</sub>
+                                    </td>
+                                    <td>
+                                        <input type="number" step="1" placeholder="Enter a number" min="0" max="10000" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" step="1" placeholder="Enter a number" min="1" max="10000" required>
+                                    </td>
+                                    <td style="display: none">
+                                        <input type="number" step="1" placeholder="Enter a number" min="1" max="10000" required disabled>
+                                    </td>
+                                    <td>
+                                        <div class="process-color" style="background-color: #CC004C;"></div>
+                                    </td>
+                                </tr>
+
+                                <tr data-id="2">
+                                    <td>
+                                        P<sub>2</sub>
+                                    </td>
+                                    <td>
+                                        <input type="number" step="1" placeholder="Enter a number" min="0" max="10000" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" step="1" placeholder="Enter a number" min="1" max="10000" required>
+                                    </td>
+                                    <td style="display: none">
+                                        <input type="number" step="1" placeholder="Enter a number" min="1" max="10000" required disabled>
+                                    </td>
+                                    <td>
+                                        <div class="process-color" style="background-color: #0089D0;"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="fix"></div>
+                    <div class="SignUpBtn">
+                        <button form="fields_form">Calculate</button>
+                    </div>
+                </form> 
+            </div>
+
+            <div class="quiz_content" style="width: 85%;height: auto;background-color: #fff;border-radius: 10px;box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08); padding: 4%;min-height: 461.5px;"> 
+                <h2 class="no_shadow">Output</h2>
+                <div class="results">
+                    <div class="gantt-chart" style="display: none;">
+                        <ul>
+                            <li data-start="0" data-end="4" data-process="1" class="gantt1">P1</li>
+                            <li data-end="6">P2</li>
+                            <li data-end="10" data-process="1" class="gantt1">P3</li>
+                            <li class="idle-process" data-end="20">idle</li>
+                            <li data-end="23">P4</li>
+                        </ul>
+                    </div>
+                    <table class="result-styled-table static-table-style" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Process</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                                <th>Completion</th>
+                                <th>Around Time</th>
+                                <th>Waiting Time</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="no-input">
+                        <img src="/images/no_input.png" alt="">
+                        <div class="no-input-disc">
+                            <h3>There are no inputs</h3>
+                            <p> There are no inputs to calculate for, so you have to choice the algorithm type and enter the required data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="allfooter" style="background-color: #f1f1f1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" xml:space="preserve" x="0px" y="0px" ><path fill="#fff" fill-opacity="1" d="M0,65L1440,5L1440,0L0,0Z"></path></svg>
+
+            <div class="footer" dir="ltr">
+                <i class="fab fa-telegram-plane brandIcons"></i>
+                <i class="fab fa-youtube brandIcons"></i>
+                <i class="fab fa-twitter brandIcons"></i>
+                <i class="fab fa-instagram brandIcons"></i>
+                <i class="fab fa-facebook-f brandIcons"></i>
+            </div>
+
+            <div class="copyright">
+                <span>Desgined By HESHAM</span>
+            </div> 
+
+        </div>
+
+        </body>
+        <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="./js/main.js" type="text/javascript"></script>
+        <script src="./js/select.js" type="text/javascript"></script>
+    </html>
